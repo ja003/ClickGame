@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1">
+
+    //red box
+    //blue box
+
+    //yellow box
+
+    //green box
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/boxGreen"
+        android:src="@drawable/box_green"
+        android:alpha="1"
+        android:layout_alignTop="@+id/boxRed"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="right|bottom"
+        android:layout_margin="25dp" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/boxYellow"
+        android:src="@drawable/box_yellow"
+        android:alpha="1"
+        android:layout_alignTop="@+id/boxRed"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="left|bottom"
+        android:layout_margin="25dp" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/boxRed"
+        android:src="@drawable/box_red"
+        android:alpha="1"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="left|center_vertical"
+        android:layout_margin="25dp" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/boxBlue"
+        android:src="@drawable/box_blue"
+        android:alpha="1"
+        android:layout_alignTop="@+id/boxRed"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="right|center_vertical"
+        android:layout_margin="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="click on red button!"
+        android:id="@+id/quest_01"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="75dp"
+        android:textSize="25dp"
+        android:gravity="center_vertical|center_horizontal" />
+
+
+</FrameLayout>
