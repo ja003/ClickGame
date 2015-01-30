@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
         public void onClick(View v) {
             Intent intent = new Intent(getApplicationContext(), Lvl_01.class);
             startActivity(intent);
-            overridePendingTransition(R.animator.animation_01,R.animator.animation_01);
+            //overridePendingTransition(R.animator.animation_01,R.animator.animation_01);
         }
 
     });
