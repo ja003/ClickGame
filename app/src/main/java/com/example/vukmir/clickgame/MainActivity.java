@@ -12,6 +12,8 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 
+    int scoreLvl0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +24,9 @@ public class MainActivity extends Activity {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(getApplicationContext(), Lvl_01.class);
+            scoreLvl0 = 0;
+            intent.putExtra("score",0);
+
             startActivity(intent);
             //overridePendingTransition(R.animator.animation_01,R.animator.animation_01);
         }

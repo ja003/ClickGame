@@ -20,6 +20,14 @@ public class Lvl_01 extends Activity { //has to be declared in android manifest!
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lvl_01);
 
+        //get score from lvl before
+
+        final int scoreLvl1 = getIntent().getIntExtra("score",-1);
+        TextView scoreView = (TextView) findViewById(R.id.scoreLvl1);
+        //Toast.makeText(getApplicationContext(),score,Toast.LENGTH_LONG).show();
+        scoreView.setText(scoreLvl1);
+
+
         //quest appears after 2 seconds
         final TextView quest_01 = (TextView) findViewById(R.id.quest_01);
         quest_01.postDelayed(new Runnable() {

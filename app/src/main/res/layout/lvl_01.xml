@@ -74,5 +74,13 @@
         android:gravity="center_vertical|center_horizontal"
         android:alpha="0.1" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="your score"
+        android:id="@+id/scoreLvl1"
+        android:layout_gravity="right|top" />
+
 
 </FrameLayout>
