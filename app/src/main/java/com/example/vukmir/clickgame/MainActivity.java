@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
         public void onClick(View v) {
             Intent intent = new Intent(getApplicationContext(), Lvl_01.class);
             scoreLvl0 = 0;
-            intent.putExtra("score",0);
+            intent.putExtra("score",scoreLvl0);
 
             startActivity(intent);
             //overridePendingTransition(R.animator.animation_01,R.animator.animation_01);
