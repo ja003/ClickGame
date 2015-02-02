@@ -22,6 +22,9 @@
         //lvl_01
         <activity android:name=".Lvl_01" />
 
+        //lvl_02
+        <activity android:name=".Lvl_02" />
+
     </application>
 
 </manifest>

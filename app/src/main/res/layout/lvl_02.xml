@@ -31,8 +31,8 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="click on red button!"
-            android:id="@+id/quest_01"
+            android:text="click on blue button!"
+            android:id="@+id/quest_02"
             android:textSize="25dp"
             android:gravity="center_vertical|center_horizontal"
             android:alpha="0.1"

@@ -28,6 +28,7 @@ public class MainActivity extends Activity {
             intent.putExtra("score",scoreLvl0);
 
             startActivity(intent);
+
             //overridePendingTransition(R.animator.animation_01,R.animator.animation_01);
         }
 
