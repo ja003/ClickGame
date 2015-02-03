@@ -23,19 +23,19 @@ public class Lvl_02 extends Activity { //has to be declared in android manifest!
         setContentView(R.layout.lvl_02);
 
         //get score from lvl before
-        final int scoreLvl2 = getIntent().getIntExtra("score",-1);
+        final int scoreCurrent = getIntent().getIntExtra("score",-1);
 
-        final TextView scoreView = (TextView) findViewById(R.id.scoreView);
+        final TextView scoreView = (TextView) findViewById(R.id.score);
         //Toast.makeText(getApplicationContext(),"it is" + scoreLvl1 ,Toast.LENGTH_LONG).show();
-        scoreView.setText(" " + scoreLvl2);
+        scoreView.setText(" " + scoreCurrent);
 
 
         //quest appears after 2 seconds
-        final TextView quest_02 = (TextView) findViewById(R.id.quest_02);
-        quest_02.postDelayed(new Runnable() {
+        final TextView quest = (TextView) findViewById(R.id.txtQuest);
+        quest.postDelayed(new Runnable() {
             @Override
             public void run() {
-                quest_02.setAlpha(1);
+                quest.setVisibility(View.VISIBLE);
                 //Toast.makeText(getApplicationContext(),toString(quest_01.getAlpha()),Toast.LENGTH_SHORT);
             }
         }, 1000);
@@ -62,7 +62,7 @@ public class Lvl_02 extends Activity { //has to be declared in android manifest!
                 //Intent intent = new Intent(getApplicationContext(), Lvl_01.class);
                 //startActivity(intent);
                 //Toast.makeText(getApplicationContext(),"YOU WON!", Toast.LENGTH_LONG).show();
-                scoreView.setText(" " + (scoreLvl2+1) );
+                scoreView.setText(" " + (scoreCurrent+1) );
             }
 
         });
@@ -72,7 +72,7 @@ public class Lvl_02 extends Activity { //has to be declared in android manifest!
             @Override
             public void onClick(View v) {
                 //Toast.makeText(getApplicationContext(),"YOU LOST", Toast.LENGTH_SHORT).show();
-                scoreView.setText(" " + (scoreLvl2-1) );
+                scoreView.setText(" " + (scoreCurrent-1) );
             }
 
         });

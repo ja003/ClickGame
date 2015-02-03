@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,24 +24,26 @@ public class Lvl_01 extends Activity { //has to be declared in android manifest!
         setContentView(R.layout.lvl_01);
 
         //get score from lvl before
-        final int scoreLvl1 = getIntent().getIntExtra("score",-1);
+        final int scoreCurrent = getIntent().getIntExtra("score",-1);
 
-        final TextView scoreView = (TextView) findViewById(R.id.scoreView);
-        //Toast.makeText(getApplicationContext(),"it is" + scoreLvl1 ,Toast.LENGTH_LONG).show();
-        scoreView.setText(" " + scoreLvl1);
+        final TextView scoreView = (TextView) findViewById(R.id.score);
+        //Toast.makeText(getApplicationContext(),"it is" + scoreCurrent ,Toast.LENGTH_LONG).show();
+        scoreView.setText(" " + scoreCurrent);
 
 
         //quest appears after 1 seconds
-        final TextView quest_01 = (TextView) findViewById(R.id.quest_01);
-        quest_01.postDelayed(new Runnable() {
+        final TextView quest = (TextView) findViewById(R.id.txtQuest);
+        quest.postDelayed(new Runnable() {
             @Override
             public void run() {
-                quest_01.setAlpha(1);
+                quest.setVisibility(View.VISIBLE);
                 //Toast.makeText(getApplicationContext(),toString(quest_01.getAlpha()),Toast.LENGTH_SHORT);
             }
         }, 1000);
 
         //boxes appears after 2 seconds
+        final RelativeLayout optionsClickable = (RelativeLayout) findViewById(R.id.questOptionsClickable);
+
         final ImageView red_box = (ImageView) findViewById(R.id.boxRed);
         final ImageView blue_box = (ImageView) findViewById(R.id.boxBlue);
         final ImageView yellow_box = (ImageView) findViewById(R.id.boxYellow);
@@ -48,6 +51,9 @@ public class Lvl_01 extends Activity { //has to be declared in android manifest!
         red_box.postDelayed(new Runnable() {
             @Override
             public void run() {
+                optionsClickable.setVisibility(View.VISIBLE);
+                optionsClickable.setAlpha(1);
+
                 red_box.setVisibility(View.VISIBLE);
                 blue_box.setVisibility(View.VISIBLE);
                 yellow_box.setVisibility(View.VISIBLE);
@@ -59,11 +65,11 @@ public class Lvl_01 extends Activity { //has to be declared in android manifest!
         red_box.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Lvl_02.class);
-                intent.putExtra("score", scoreLvl1+1);
+                Intent intent = new Intent(getApplicationContext(), Lvl_01.class);
+                intent.putExtra("score", scoreCurrent+1);
                 startActivity(intent);
                 //Toast.makeText(getApplicationContext(),"YOU WON!", Toast.LENGTH_LONG).show();
-                scoreView.setText(" " + (scoreLvl1+1) );
+                scoreView.setText(" " + (scoreCurrent+1) );
             }
 
         });
@@ -73,10 +79,10 @@ public class Lvl_01 extends Activity { //has to be declared in android manifest!
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Lvl_02.class);
-                intent.putExtra("score", scoreLvl1-1);
+                intent.putExtra("score", scoreCurrent-1);
                 startActivity(intent);
                 //Toast.makeText(getApplicationContext(),"YOU WON!", Toast.LENGTH_LONG).show();
-                scoreView.setText(" " + (scoreLvl1-1) );
+                scoreView.setText(" " + (scoreCurrent - 1));
             }
 
         });

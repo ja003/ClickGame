@@ -1,125 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:weightSum="1">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    //red box
-    //blue box
-
-    //yellow box
-
-    //green box
-
-    <LinearLayout
+    //top panel
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/topPanel"
+        android:weightSum="1">
 
+        // question
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="your score"
-            android:id="@+id/scoreView"
-            android:layout_gravity="right"
-            android:visibility="visible"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="0dp" />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="click on red button!"
-            android:id="@+id/quest_01"
-            android:textSize="25dp"
-            android:gravity="center_vertical|center_horizontal"
-            android:alpha="0.1"
-            android:visibility="visible"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="10dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp">
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:id="@+id/boxGreen"
-            android:src="@drawable/box_green"
-            android:alpha="1"
-            android:layout_alignTop="@+id/boxRed"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="right|bottom"
-            android:layout_margin="20dp"
-            android:visibility="invisible"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true" />
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:id="@+id/boxRed"
-            android:src="@drawable/box_red"
-            android:alpha="1"
+            android:text="click on red box!"
+            android:id="@+id/txtQuest"
+            android:layout_gravity="center"
+            android:textSize="30dp"
             android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_gravity="left|center_vertical"
-            android:layout_margin="20dp"
-            android:visibility="invisible"
-            android:layout_alignParentTop="true" />
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="200dp">
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:id="@+id/boxYellow"
-            android:src="@drawable/box_yellow"
-            android:alpha="1"
-            android:layout_alignTop="@+id/boxRed"
+        // score counter
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="your score"
+            android:id="@+id/score"
+            android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_gravity="left|bottom"
-            android:layout_margin="20dp"
-            android:visibility="invisible"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="0dp" />
+            android:textSize="20dp"
+            android:layout_margin="10dp" />
+    </RelativeLayout>
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:id="@+id/boxBlue"
-            android:src="@drawable/box_blue"
-            android:alpha="1"
-            android:visibility="invisible"
-            android:layout_alignBottom="@+id/linearLayout"
+    //OPTIONS
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/topPanel"
+        android:id="@+id/questOptions">
+
+        //quest options 01
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_margin="20dp" />
+            android:layout_alignParentEnd="false"
+            android:alpha="0.1"
+            android:focusable="false"
+            android:id="@+id/questOpt01"
+            android:visibility="invisible">
 
-    </LinearLayout>
+            // green box
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/q01o01_greenBox"
+                android:src="@drawable/box_green"
+                android:alpha="1"
+                android:visibility="visible"
+                android:layout_gravity="left|center"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_margin="25dp" />
 
+            // yellow box
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/q01o02_yellowBox"
+                android:src="@drawable/box_yellow"
+                android:alpha="1"
+                android:layout_gravity="left|bottom"
+                android:visibility="visible"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="25dp" />
+
+            // blue box
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/q01o03_blueBox"
+                android:src="@drawable/box_blue"
+                android:alpha="1"
+                android:visibility="visible"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_margin="25dp" />
+
+            // red box
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/q01o04_redBox"
+                android:src="@drawable/box_red"
+                android:alpha="1"
+                android:layout_gravity="left|center_vertical"
+                android:visibility="visible"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="25dp" />
+
+
+
+
+        </RelativeLayout>
+
+        //quest 02 options
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="false"
+            android:alpha="0.1"
+            android:focusable="false"
+            android:id="@+id/questOpt02">
+
+            // green box
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/q02o01_greenBox"
+                android:src="@drawable/box_green"
+                android:alpha="1"
+                android:visibility="visible"
+                android:layout_gravity="left|center"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_margin="25dp" />
+
+            // yellow box
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/q02o02_yellowBox"
+                android:src="@drawable/box_yellow"
+                android:alpha="1"
+                android:layout_gravity="left|bottom"
+                android:visibility="visible"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="25dp" />
+
+            // red box
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/q02o03_redBox"
+                android:src="@drawable/box_red"
+                android:alpha="1"
+                android:layout_gravity="left|center_vertical"
+                android:visibility="visible"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_alignRight="@+id/q02o01_greenBox"
+                android:layout_alignEnd="@+id/q02o01_greenBox" />
+
+
+            // blue box
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:id="@+id/q02o04_blueBox"
+                android:src="@drawable/box_blue"
+                android:alpha="1"
+                android:visibility="visible"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_alignLeft="@+id/q02o02_yellowBox"
+                android:layout_alignStart="@+id/q02o02_yellowBox" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    //Clickable Options
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/questOptionsClickable"
+        android:layout_below="@+id/topPanel"
+        android:visibility="gone">
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:text="OPTION 1"
+            android:id="@+id/btnOpt01"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="25dp" />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:text="OPTION 2"
+            android:id="@+id/btnOpt02"
+            android:layout_alignTop="@+id/btnOpt01"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="25dp"
+            android:layout_alignParentTop="true" />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:text="OPTION 3"
+            android:id="@+id/btnOpt03"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="25dp" />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:text="OPTION 4"
+            android:id="@+id/btnOpt04"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="25dp" />
+    </RelativeLayout>
 
 </RelativeLayout>
