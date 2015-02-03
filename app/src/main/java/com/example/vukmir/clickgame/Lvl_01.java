@@ -30,24 +30,25 @@ public class Lvl_01 extends Activity { //has to be declared in android manifest!
         //generate lvl
         final Answer correctAnswer = new Answer();
         Random randomGenerator = new Random();
-        final int questNumber = randomGenerator.nextInt(1)+1;
-        Toast.makeText(getApplicationContext(),"quest "+questNumber,Toast.LENGTH_SHORT);
+        final int questNumber = randomGenerator.nextInt(3)+1;
+        Toast.makeText(getApplicationContext(),"quest "+questNumber,Toast.LENGTH_SHORT).show();
 
 
         final TextView quest = (TextView) findViewById(R.id.txtQuest);
         //set question text
         switch(questNumber){
             case 1:
-                quest.setText("click on red box!");
+                quest.setText("click on green box!");
                 correctAnswer.setAnswer(1);
                 break;
             case 2:
-                quest.setText("click on blue box!");
+                quest.setText("click on yellow box!");
                 correctAnswer.setAnswer(2);
                 break;
 
             default:
-                Toast.makeText(getApplicationContext(),"FAIL",Toast.LENGTH_SHORT);
+                Toast.makeText(getApplicationContext(),"FAIL",Toast.LENGTH_SHORT).show();
+                correctAnswer.setAnswer(-1);
                 break;
         }
         //quest appears after 1 second
@@ -124,33 +125,6 @@ public class Lvl_01 extends Activity { //has to be declared in android manifest!
         });
 
 
-        /**
-        // correct box option
-        red_box.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Lvl_01.class);
-                intent.putExtra("score", score+1);
-                startActivity(intent);
-                //Toast.makeText(getApplicationContext(),"YOU WON!", Toast.LENGTH_LONG).show();
-                scoreView.setText(" " + (score+1) );
-            }
-
-        });
-
-        // wrong boxes options
-        blue_box.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Lvl_02.class);
-                intent.putExtra("score", score-1);
-                startActivity(intent);
-                //Toast.makeText(getApplicationContext(),"YOU WON!", Toast.LENGTH_LONG).show();
-                scoreView.setText(" " + (score - 1));
-            }
-
-        });
-        */
 
 
 
@@ -168,6 +142,17 @@ public class Lvl_01 extends Activity { //has to be declared in android manifest!
             Intent intent = new Intent(getApplicationContext(), Lvl_01.class);
             intent.putExtra("score", score-1);
             startActivity(intent);
+        }
+    }
+
+    public void checkScore(int score){
+        if(score < -1){
+            Toast.makeText(getApplicationContext(),"YOU LOSE", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        }
+        else if(score > 5){
+            Toast.makeText(getApplicationContext(),"YOU WIN", Toast.LENGTH_SHORT).show();
         }
     }
 
