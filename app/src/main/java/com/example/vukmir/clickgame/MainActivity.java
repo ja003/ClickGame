@@ -12,7 +12,7 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
 
-    int scoreLvl0;
+    int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +23,11 @@ public class MainActivity extends Activity {
     startButton.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getApplicationContext(), Lvl_01.class);
-            scoreLvl0 = 0;
-            intent.putExtra("score",scoreLvl0);
+            Intent lvl01 = new Intent(getApplicationContext(), Lvl_01.class);
+            score = 0;
+            lvl01.putExtra("score", score);
 
-            startActivity(intent);
+            startActivity(lvl01);
 
             //overridePendingTransition(R.animator.animation_01,R.animator.animation_01);
         }

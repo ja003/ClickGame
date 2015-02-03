@@ -36,4 +36,20 @@ public class Answer {
         this.answer = answer;
     }
 
+    public boolean equals(Object obj){
+        if(obj instanceof Answer){
+            Answer answer = (Answer) obj;
+            if(this.answer == answer.answer){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int hashCode() {
+        int hash = 5;
+        hash = 79*hash+(this.answer);
+        return hash;
+    }
+
 }
