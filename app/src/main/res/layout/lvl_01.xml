@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="your score"
-            android:id="@+id/score"
+            android:id="@+id/scoreView"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
@@ -43,7 +43,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@+id/topPanel"
-        android:id="@+id/questOptions">
+        android:id="@+id/viewableOptions">
 
         //quest options 01
         <RelativeLayout
@@ -54,7 +54,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="false"
             android:focusable="false"
-            android:id="@+id/questOpt01"
+            android:id="@+id/viewableOpt01"
             android:visibility="invisible">
 
             // green box
@@ -126,7 +126,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="false"
             android:focusable="false"
-            android:id="@+id/questOpt02"
+            android:id="@+id/viewableOpt02"
             android:visibility="invisible">
 
             // green box

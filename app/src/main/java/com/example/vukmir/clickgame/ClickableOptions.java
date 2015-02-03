@@ -3,19 +3,21 @@ package com.example.vukmir.clickgame;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Vukmir on 3.2.2015.
  */
 public class ClickableOptions {
-    List<Button> clickableOptions;
+    List<Button> clickableOptions = new ArrayList<>();
     Answer correctAnswer;
 
     public ClickableOptions(List<Button> clickableOptions) {
-        for(Button b : clickableOptions){
-            this.clickableOptions.add(b);
-        }
+        if(clickableOptions == null)
+            throw new NullPointerException("clickableOptions null");
+        else
+            this.clickableOptions.addAll(clickableOptions);
     }
 
     public void appear(){
@@ -47,7 +49,7 @@ public class ClickableOptions {
     }
 
     public boolean isCorrect(){
-        if(getAnswer().equals(correctAnswer))
+        if(getAnswer().checkAnswer(correctAnswer))
             return true;
         else
             return false;

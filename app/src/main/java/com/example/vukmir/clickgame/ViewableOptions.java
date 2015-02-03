@@ -4,18 +4,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Vukmir on 3.2.2015.
  */
 public class ViewableOptions {
-    List<RelativeLayout> viewableOptions;
+    List<RelativeLayout> viewableOptions = new ArrayList<>();
 
     public ViewableOptions(List<RelativeLayout> viewableOptions) {
-        for(RelativeLayout r : viewableOptions){
-            this.viewableOptions.add(r);
-        }
+        if(viewableOptions == null)
+            throw new NullPointerException("viewableOptions null");
+        else
+            this.viewableOptions.addAll(viewableOptions);
     }
 
     public void appear(){
