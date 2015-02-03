@@ -53,7 +53,6 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="false"
-            android:alpha="0.1"
             android:focusable="false"
             android:id="@+id/questOpt01"
             android:visibility="invisible">
@@ -126,9 +125,9 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="false"
-            android:alpha="0.1"
             android:focusable="false"
-            android:id="@+id/questOpt02">
+            android:id="@+id/questOpt02"
+            android:visibility="invisible">
 
             // green box
             <ImageView
