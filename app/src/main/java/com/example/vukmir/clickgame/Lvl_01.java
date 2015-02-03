@@ -14,10 +14,12 @@ import java.util.Random;
 
 public class Lvl_01 extends Activity { //has to be declared in android manifest!
 
-
+    int LOW_SCORE = 0;
+    int HIGH_SCORE = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lvl_01);
 
@@ -99,28 +101,40 @@ public class Lvl_01 extends Activity { //has to be declared in android manifest!
             @Override
             public void onClick(View v) {
                 answer.setAnswer(1);
-                goToNextLvl(answer.checkAnswer(correctAnswer), score);
+                if(checkScore(score))
+                    specialScore(score);
+                else
+                    goToNextQuest(answer.checkAnswer(correctAnswer), score);
             }
         });
         optionClickable02.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 answer.setAnswer(2);
-                goToNextLvl(answer.checkAnswer(correctAnswer), score);
+                if(checkScore(score))
+                    specialScore(score);
+                else
+                    goToNextQuest(answer.checkAnswer(correctAnswer), score);
             }
         });
         optionClickable03.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 answer.setAnswer(3);
-                goToNextLvl(answer.checkAnswer(correctAnswer), score);
+                if(checkScore(score))
+                    specialScore(score);
+                else
+                    goToNextQuest(answer.checkAnswer(correctAnswer), score);
             }
         });
         optionClickable04.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 answer.setAnswer(4);
-                goToNextLvl(answer.checkAnswer(correctAnswer), score);
+                if(checkScore(score))
+                    specialScore(score);
+                else
+                    goToNextQuest(answer.checkAnswer(correctAnswer), score);
             }
         });
 
@@ -132,26 +146,36 @@ public class Lvl_01 extends Activity { //has to be declared in android manifest!
 
     //************end of onCreate ************//
 
-    public void goToNextLvl(boolean result, int score){
+    public void goToNextQuest(boolean result, int score){
         if(result){
-            Intent intent = new Intent(getApplicationContext(), Lvl_01.class);
-            intent.putExtra("score", score+1);
-            startActivity(intent);
+            Intent nextQuest = new Intent(getApplicationContext(), Lvl_01.class);
+            nextQuest.putExtra("score", score + 1);
+            startActivity(nextQuest);
         }
         else{
-            Intent intent = new Intent(getApplicationContext(), Lvl_01.class);
-            intent.putExtra("score", score-1);
-            startActivity(intent);
+            Intent nextQuest = new Intent(getApplicationContext(), Lvl_01.class);
+            nextQuest.putExtra("score", score - 1);
+            startActivity(nextQuest);
         }
     }
 
-    public void checkScore(int score){
-        if(score < -1){
-            Toast.makeText(getApplicationContext(),"YOU LOSE", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
+    public boolean checkScore(int score){
+        if(score < LOW_SCORE){
+            return true;
         }
-        else if(score > 5){
+        else if(score > HIGH_SCORE){
+            return true;
+        }
+        return false;
+    }
+
+    public void specialScore(int score){
+        if(score < LOW_SCORE){
+            Toast.makeText(getApplicationContext(),"YOU LOSE", Toast.LENGTH_SHORT).show();
+            Intent mainMenu = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(mainMenu);
+        }
+        else if(score > HIGH_SCORE){
             Toast.makeText(getApplicationContext(),"YOU WIN", Toast.LENGTH_SHORT).show();
         }
     }
