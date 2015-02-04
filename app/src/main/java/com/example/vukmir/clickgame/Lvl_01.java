@@ -17,9 +17,9 @@ import java.util.Random;
 
 public class Lvl_01 extends Activity { //has to be declared in android manifest!
 
-    int LOSE_SCORE = 0;
-    int WIN_SCORE = 5;
-    int QUESTIONS_COUNT = 1;
+    int LOSE_SCORE = -1;
+    int WIN_SCORE = 3;
+    int QUESTIONS_COUNT = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +64,10 @@ public class Lvl_01 extends Activity { //has to be declared in android manifest!
         TopPanel topPanel = new TopPanel(questionView,scoreView,score, QUESTIONS_COUNT, questions);
         //create correct answers list
         List<Answer> correctAnswers = new ArrayList<>();
+        correctAnswers.add(new Answer(0));
         correctAnswers.add(new Answer(1));
         correctAnswers.add(new Answer(2));
+        correctAnswers.add(new Answer(3));
 
         //create level
         Level level01 = new Level(LOSE_SCORE, WIN_SCORE, clickableOptions, viewableOptions, topPanel, Lvl_02.class, correctAnswers);

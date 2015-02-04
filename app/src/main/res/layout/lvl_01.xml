@@ -200,7 +200,7 @@
         android:layout_height="fill_parent"
         android:id="@+id/questOptionsClickable"
         android:layout_below="@+id/topPanel"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <Button
             android:layout_width="150dp"
