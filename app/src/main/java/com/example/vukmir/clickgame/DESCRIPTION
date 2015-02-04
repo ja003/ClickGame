@@ -1,0 +1,17 @@
+
+
+Player starts in MainActivity
+
+presses Start button
+
+->
+
+Lvl_01
+
+in Lvl_01 class we are all buttons and layouts declared and are used to create Level object for this level.
+
+level ends, when the current score is bellow LOSE_SCORE limit or over WIN_SCORE limit.
+
+if win -> start Lvl_02
+
+if lose -> go back to MainActivity
